@@ -1,0 +1,503 @@
+/* --- VARIABLES DE COULEURS --- */
+:root {
+    --bg-dark: #0f1115; /* Noir mat profond */
+    --card-bg: #1e222a; /* Gris très sombre pour les cartes */
+    --gold-bright: #e3c47e; /* Doré pour les accents (comme le logo) */
+    --gold-text: #cbb26d; /* Doré légèrement mat pour le texte */
+    --text-white: #fafafa; /* Blanc cassé pour la lisibilité */
+    --text-muted: #9fa6b2; /* Gris clair pour les descriptions */
+    --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* --- STYLES GÉNÉRAUX & TYPO --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+h1 {
+    color: var(--gold-bright);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--gold-bright);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+a { text-decoration: none; transition: 0.3s; }
+.container { width: 85%; max-width: 1200px; margin: 0 auto; padding: 50px 0;  }
+
+/* --- NAVIGATION (NAVBAR) --- */
+header {
+    background: var(--card-bg);
+    padding: 10px 0;
+    border-bottom: 2px solid #2a2f3b; /* Fine ligne de démarcation */
+    position: sticky; top: 0; z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Structure du logo + titre */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre boussole et texte */
+}
+
+.logo-img {
+    height: 60px; /* Ajuste la taille de la boussole */
+}
+.logo-img2 {
+    height: 150px; /* Ajuste la taille de la boussole */
+}
+.site-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-bright);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Liens de nav */
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a {
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--gold-bright);
+}
+
+/* --- SECTION HERO (Accueil) --- */
+.hero {
+    background: linear-gradient(rgba(15, 17, 21, 0.9), rgba(15, 17, 21, 0.9)),
+                url('images/hero-compass.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 0 20px;
+}
+
+.hero h1 { color: var(--gold-bright); font-size: 3rem; margin-bottom: 15px; }
+.hero p { color: var(--text-white); font-size: 1.3rem; max-width: 700px; margin-bottom: 40px; }
+
+.btn-main {
+    background: linear-gradient(45deg, #d4af37, #e3c47e);
+    color: #000;
+    font-weight: bold; padding: 15px 35px; border-radius: 30px;
+    font-size: 1.1rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(227, 196, 126, 0.4);
+}
+
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(227, 196, 126, 0.6); }
+
+/* --- GRILLE DE PROJETS EN CARTES --- */
+.featured-grid { margin-top: 50px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+/* La Carte */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 10px; overflow: hidden;
+    transition: 0.3s; box-shadow: var(--shadow-main);
+    display: flex; flex-direction: column;
+}
+
+.project-card:hover { transform: translateY(-7px); border: 1px solid #333946; }
+
+.project-card img {
+    width: 100%; height: 200px;
+    object-fit: cover; /* Recadre l'image sans la déformer */
+}
+
+.project-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.project-info h3 { color: var(--gold-bright); margin-top: 0; margin-bottom: 10px; font-size: 1.5rem; }
+.project-info p { color: var(--text-muted); font-size: 1rem; margin-bottom: 25px; flex-grow: 1; }
+
+.link-detail {
+    color: var(--gold-text); font-weight: bold; align-self: flex-start;
+}
+
+.link-detail:hover { text-decoration: underline; color: var(--gold-bright); }
+
+/* --- FOOTER --- */
+footer {
+    background-color: #080a0d;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 1px solid #1a1d23; /* Une ligne très discrète pour séparer du reste */
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.footer-content {
+    display: flex;
+    flex-direction: row; /* Aligne le logo et le texte sur la même ligne */
+    justify-content: center; /* Centre le groupe au milieu de la page */
+    align-items: center;    /* Centre horizontalement */
+    gap: 15px;              /* Espace entre le logo et le texte */
+}
+
+.footer-logo {
+    height: 50px;           /* Taille discrète pour un footer */
+    width: auto;
+    filter: grayscale(100%) brightness(1.2); /* Optionnel : rend le logo un peu plus sobre pour le footer */
+    transition: 0.3s;
+    opacity: 0.8;           /* Légèrement transparent pour ne pas attirer trop l'oeil */
+}
+.footer-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);  /* Reprend ses couleurs d'origine au survol */
+}
+
+.footer-logo2 {
+    height: 150px;           /* Taille discrète pour un footer */
+    width: auto;
+    filter: grayscale(0%) brightness(1.2); /* Optionnel : rend le logo un peu plus sobre pour le footer */
+    transition: 0.3s;
+    opacity: 0.8;           /* Légèrement transparent pour ne pas attirer trop l'oeil */
+}
+.footer-logo2:hover {
+    opacity: 1;
+    filter: grayscale(100%);  /* Reprend ses couleurs d'origine au survol */
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* --- SECTION ÉQUIPE --- */
+
+.team-section-container {
+  text-align: center;
+    margin-bottom: 60px; 
+}
+.second-phrase {
+    display: block; /* Force le retour à la ligne */
+    margin-top: 1px; /* Optionnel : ajoute un petit espace entre les deux phrases */
+}
+.team-section {
+    padding-top: 0;
+}
+
+.member-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 40px;
+    border-left: 5px solid var(--gold-bright);
+    min-height: 120px; /* Force la carte à faire au moins cette taille */
+}
+
+.member-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-bright);
+    object-fit: cover;
+}
+
+.member-projects {
+    flex: 1;
+    border-left: 1px solid #333946;
+    padding-left: 30px;
+}
+
+.member-projects h4 {
+    color: var(--gold-text);
+    margin-top: 0;
+}
+
+.member-projects ul {
+    list-style: "→ ";
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* Style du nom (déjà dans votre h3 normalement) */
+.member-text h3 {
+    font-size: 1.5rem; /* Plus grand */
+    margin-bottom: 5px;
+    color: var(--gold-bright);
+}
+
+/* Style de la zone de rôle entière */
+.role {
+    line-height: 1.4; /* Resserre un peu l'espace entre les lignes */
+}
+
+/* La ligne "Professeur de Sciences" */
+.job-title {
+    font-size: 0.9rem;      /* Plus petit que le h3 */
+    color: var(--text-white); /* En blanc pour bien lire le métier */
+    font-weight: 500;
+}
+
+/* La ligne "Web Design & Développement..." */
+.tech-skills {
+    font-size: 0.9rem;      /* Encore plus petit */
+    color: var(--gold-text);  /* En doré plus discret */
+    font-style: italic;     /* Optionnel : pour différencier les compétences */
+    text-transform: uppercase; /* Optionnel : pour un look "badge" */
+    letter-spacing: 1px;     /* Espace un peu les lettres pour le style tech */
+}
+.golden-line-gradient {
+    height: 2px;
+    border: none;
+    background: linear-gradient(to right, transparent, var(--gold-bright), transparent);
+    /* Le dégradé part du transparent, devient doré au milieu, et redevient transparent */
+    margin: 30px auto;
+    width: 50%;
+    border-radius: 5px;
+}
+
+/* --- SECTION PROJETS PERSOS --- */
+.personal-projects-section {
+    background-color: #0f1115;
+    padding: 0px 0 0px 0;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.personal-projects-section h3 {
+    font-size: 2rem;
+    color: var(--gold-text); 
+    margin-top: -50px;
+}
+.personal-projects-section h4 {
+    font-size: 1rem;
+    color: var(--text-muted); /* Moins brillant que le pro */
+}
+.mini-grid {
+    display: grid;
+    /* On définit 3 colonnes de 150px maximum chacune */
+    grid-template-columns: repeat(3, 150px); 
+    /* On espace les colonnes de 40px */
+    gap: 40px;
+    /* On centre la grille entière dans la page */
+    justify-content: center; 
+    margin-top: 30px;
+}
+
+/* La carte devient un lien cliquable */
+.mini-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* Enlève le souligné du lien */
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.mini-card span {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Le cercle doré pour l'icône du projet */
+.project-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    border: 2px solid var(--gold-bright); /* Cercle doré comme les photos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.project-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'icône remplit le cercle */
+}
+
+/* Effets au survol */
+.mini-card:hover .project-icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--gold-bright); /* Lueur dorée au survol */
+}
+
+.mini-card:hover span {
+    color: var(--gold-bright);
+}
+
+/* --- PAGE PROJETS PROFESSIONNELS --- */
+
+.pro-header {
+    margin-top: -30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Container du projet */
+.project-showcase {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 40px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #1a1d23;
+}
+
+.project-showcase:last-of-type {
+    margin-bottom: -60px; /* Supprime la marge uniquement pour le dernier projet de la page */
+}
+
+/* Inversion pour un projet sur deux */
+.project-showcase.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-image {
+    flex: 1;
+}
+
+.project-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #2a2f3b;
+}
+
+.project-details {
+    flex: 1;
+}
+
+.category {
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.project-details h2 {
+    margin: 10px 0 20px 0;
+    text-align: left; /* Aligné avec le texte */
+    font-size: 2rem;
+}
+
+/* Petits badges de technologies */
+.tech-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tech-tags li {
+    background: #2a2f3b;
+    color: var(--gold-text);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    border: 1px solid var(--gold-text);
+}
+
+/* Bouton élégant */
+.btn-outline {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--gold-bright);
+    color: var(--gold-bright);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-outline:hover {
+    background: var(--gold-bright);
+    color: #000;
+}
+
+
+/* --- DEUXIÈME MENU (NAVIGATION SECONDAIRE) --- */
+.secondary-nav {
+    background-color: #0d1117; /* Légèrement plus clair que le fond pur noir */
+    border-bottom: 1px solid #1a1d23;
+    padding: 10px 0;
+    position: sticky; /* Reste collé en haut quand on scrolle ! */
+    top: 70px;        /* S'ajuste sous votre menu principal (selon sa hauteur) */
+    z-index: 99;      /* Passe au-dessus du contenu */
+    margin-top: 0;      /* Supprime l'espace au-dessus */
+}
+
+.secondary-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.sec-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.sec-link:hover {
+    color: var(--gold-bright);
+}
+
+/* Option : Le lien "actif" */
+.sec-link.active {
+    color: var(--gold-bright);
+    border-bottom: 2px solid var(--gold-bright);
+    padding-bottom: 5px;
+}
+
+.container2 {
+    padding-top: 0;
+    padding-bottom: 0; /* Vérifiez si cette valeur n'est pas à 50px ou plus */
+}
+
+/* { border: 1px solid red !important; }*/
+
+
+.pro-header2 {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 40px;
